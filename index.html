@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="NADO LIBYA - اكتشفي أحدث الأزياء النسائية بتصاميم عصرية."
+  >
+
+  <meta name="theme-color" content="#171614">
+
+  <title>NADO LIBYA | متجر الأزياء النسائية</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+  <script type="module" src="storefront.js"></script>
+</head>
+
+<body>
+
+  <!-- رأس الموقع -->
+  <header class="site-header">
+
+    <a href="#home" class="logo">
+      NADO LIBYA
+    </a>
+
+    <nav aria-label="القائمة الرئيسية">
+      <a href="#home">الرئيسية</a>
+      <a href="#products">المنتجات</a>
+      <a href="#about">من نحن</a>
+      <a href="#contact">اتصل بنا</a>
+    </nav>
+
+  </header>
+
+  <main>
+
+    <!-- الواجهة الرئيسية -->
+    <section class="hero" id="home">
+
+      <div class="hero-content">
+
+        <p class="hero-label">NADO LIBYA</p>
+
+        <h1>
+          أهلاً بكم في NADO LIBYA
+        </h1>
+
+        <p>
+          اكتشفي أحدث الأزياء لدينا واختاري إطلالتك المميزة.
+        </p>
+
+        <a href="#products" class="hero-button">
+          تصفحي المنتجات
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- من نحن -->
+    <section class="about" id="about">
+
+      <h2>من نحن</h2>
+
+      <p>
+        NADO LIBYA متجر متخصص في الأزياء،
+        نقدم أحدث التصاميم والقطع العصرية
+        لنمنحك تجربة تسوق مميزة.
+      </p>
+
+    </section>
+
+    <!-- المنتجات -->
+    <section class="products" id="products">
+
+      <div class="section-heading">
+
+        <h2>منتجاتنا</h2>
+
+        <p>
+          اكتشفي أحدث منتجات NADO LIBYA
+        </p>
+
+      </div>
+
+      <!-- البحث والتصنيفات -->
+      <div class="products-controls">
+
+        <input
+          type="search"
+          id="productSearch"
+          placeholder="ابحثي عن منتج..."
+          aria-label="البحث عن منتج"
+        >
+
+        <select
+          id="categoryFilter"
+          aria-label="اختيار تصنيف المنتجات"
+        >
+          <option value="all">جميع التصنيفات</option>
+        </select>
+
+      </div>
+
+      <!-- المنتجات التي تأتي من Firebase -->
+      <div
+        class="products-container"
+        id="productsContainer"
+        aria-live="polite"
+      >
+        <p class="empty-products">
+          جاري تحميل المنتجات...
+        </p>
+      </div>
+
+    </section>
+
+    <!-- التواصل -->
+    <section class="contact" id="contact">
+
+      <h2>تواصلي معنا</h2>
+
+      <p>
+        يسعدنا استقبال استفساراتكم ومساعدتكم
+        في اختيار المنتجات المناسبة.
+      </p>
+
+    </section>
+
+  </main>
+
+  <!-- زر السلة -->
+  <button
+    type="button"
+    class="cart-button"
+    id="cartButton"
+    aria-label="فتح سلة التسوق"
+  >
+    🛒
+    <span id="cartCount">0</span>
+  </button>
+
+  <!-- نافذة السلة -->
+  <dialog class="cart-dialog" id="cartDialog">
+
+    <div class="cart-header">
+
+      <h2>سلة التسوق</h2>
+
+      <button
+        type="button"
+        id="closeCartButton"
+        aria-label="إغلاق سلة التسوق"
+      >
+        ✕
+      </button>
+
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <p>السلة فارغة حالياً.</p>
+    </div>
+
+    <div class="cart-footer">
+
+      <p>
+        الإجمالي:
+        <strong id="cartTotal">0 LYD</strong>
+      </p>
+
+      <button
+        type="button"
+        id="checkoutButton"
+      >
+        متابعة الطلب
+      </button>
+
+      <p id="cartMessage" role="status"></p>
+
+    </div>
+
+  </dialog>
+
+  <!-- تذييل الموقع -->
+  <footer class="site-footer">
+
+    <div class="footer-logo">
+      NADO LIBYA
+    </div>
+
+    <p>الأناقة تبدأ من هنا.</p>
+
+    <p class="copyright">
+      جميع الحقوق محفوظة © 2026 NADO LIBYA
+    </p>
+
+  </footer>
+
+</body>
+</html>

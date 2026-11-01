@@ -1,0 +1,683 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: #8b7355;
+  --secondary-color: #c2a47c;
+  --background-color: #f6f4f0;
+  --white-color: #fff;
+  --text-color: #292724;
+  --muted-color: #77736d;
+  --border-color: #ddd8cf;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 95px;
+}
+
+body {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: inherit;
+}
+
+/* رأس الموقع */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+
+  padding: 18px clamp(18px, 5vw, 70px);
+
+  background: rgba(255, 255, 255, .94);
+
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  backdrop-filter: blur(12px);
+}
+
+.logo,
+.footer-logo {
+  color: var(--main-color);
+  text-decoration: none;
+  font: 800 27px "Montserrat", sans-serif;
+  letter-spacing: 1.8px;
+  white-space: nowrap;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 28px);
+}
+
+.site-header nav a {
+  color: #292724;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color .2s ease;
+}
+
+.site-header nav a:hover {
+  color: var(--main-color);
+}
+
+/* المحتوى الرئيسي */
+main {
+  padding: 0 0 45px;
+  text-align: center;
+}
+
+/* القسم الرئيسي */
+.hero {
+  min-height: 490px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 75px 20px;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(21, 20, 18, .75),
+      rgba(21, 20, 18, .25)
+    ),
+    linear-gradient(135deg, #c7b9a5, #eee7dc);
+
+  color: #fff;
+}
+
+.hero-content {
+  max-width: 760px;
+  animation: fadeUp .7s ease both;
+}
+
+.hero-label {
+  font: 700 12px "Montserrat", sans-serif;
+  letter-spacing: 5px;
+  color: #e2c9a5;
+}
+
+.hero h1 {
+  margin: 12px 0;
+  font-size: clamp(30px, 5vw, 52px);
+  line-height: 1.35;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 0 auto 25px;
+  color: #f0ece6;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.9;
+}
+
+.hero-button {
+  display: inline-block;
+  text-decoration: none;
+  background: #fff;
+  color: #211f1c;
+  padding: 12px 27px;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: .25s;
+}
+
+.hero-button:hover {
+  background: #e6d7c3;
+  transform: translateY(-2px);
+}
+
+/* من نحن */
+.about {
+  width: min(760px, calc(100% - 36px));
+  margin: 70px auto;
+  padding: 38px clamp(20px, 5vw, 50px);
+
+  background: linear-gradient(110deg, #fff, #f0e8df);
+
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}
+
+.about h2,
+.contact h2,
+.section-heading h2 {
+  margin: 0 0 13px;
+  font-size: clamp(27px, 4vw, 36px);
+}
+
+.about p,
+.contact p {
+  margin: 0;
+  color: var(--muted-color);
+  font-size: 17px;
+  line-height: 2;
+}
+
+/* المنتجات */
+.products {
+  padding: 75px clamp(15px, 4vw, 55px);
+
+  background:
+    radial-gradient(
+      circle at top,
+      #fff,
+      #eee8df 85%
+    );
+}
+
+.section-heading p {
+  margin: 0 0 25px;
+  color: var(--muted-color);
+}
+
+/* البحث والتصنيفات */
+.products-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  margin: 25px auto 35px;
+  max-width: 720px;
+}
+
+.products-controls input,
+.products-controls select {
+  min-height: 46px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+
+  padding: 10px 14px;
+
+  background: #fff;
+  color: var(--text-color);
+
+  font: 15px "Cairo", sans-serif;
+  outline: none;
+}
+
+.products-controls input {
+  flex: 1;
+  min-width: 220px;
+}
+
+.products-controls select {
+  min-width: 190px;
+}
+
+.products-controls input:focus,
+.products-controls select:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 3px rgba(139, 115, 85, .1);
+}
+
+/* شبكة المنتجات */
+.products-container {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 230px), 1fr)
+    );
+
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* بطاقة المنتج */
+.products-card {
+  width: 100%;
+  min-width: 0;
+
+  padding: 16px;
+
+  background: #fff;
+
+  border: 1px solid rgba(0, 0, 0, .045);
+  border-radius: 13px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, .07);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+
+  position: relative;
+  overflow: hidden;
+
+  animation: fadeUp .55s ease both;
+}
+
+.products-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 14px 32px rgba(0, 0, 0, .12);
+}
+
+/* صورة المنتج */
+.products-image {
+  height: 300px;
+  overflow: hidden;
+
+  background: #eeeae4;
+  border-radius: 9px;
+
+  display: grid;
+  place-items: center;
+}
+
+.products-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  display: block;
+
+  transition: transform .45s ease;
+}
+
+.products-card:hover .products-image img {
+  transform: scale(1.04);
+}
+
+/* اسم المنتج */
+.products-card h3 {
+  font-size: 18px;
+  margin: 15px 0 8px;
+}
+
+.product-description {
+  color: var(--muted-color);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* الأسعار */
+.product-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.product-price del {
+  color: #999;
+  font-size: 14px;
+}
+
+.product-price strong {
+  color: #28241f;
+  font-size: 17px;
+}
+
+/* زر السلة داخل المنتج */
+.add-to-cart {
+  width: 100%;
+  min-height: 43px;
+
+  padding: 10px 14px;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: #22201c;
+  color: #fff;
+
+  cursor: pointer;
+
+  font: 700 14px "Cairo", sans-serif;
+
+  transition:
+    background .2s,
+    transform .2s;
+}
+
+.add-to-cart:hover {
+  background: var(--main-color);
+  transform: translateY(-1px);
+}
+
+.add-to-cart:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* شارة المنتج الجديد */
+.badge {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 2;
+
+  background: #222;
+  color: #fff;
+
+  padding: 5px 11px;
+  border-radius: 4px;
+
+  font-size: 12px;
+}
+
+.empty-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 30px;
+  color: var(--muted-color);
+}
+
+/* زر السلة العائم */
+.cart-button {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+
+  width: 58px;
+  height: 58px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #222;
+  color: white;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 23px;
+  cursor: pointer;
+  z-index: 1000;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, .2);
+}
+
+#cartCount {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+
+  min-width: 22px;
+  height: 22px;
+
+  padding: 0 5px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #c2a47c;
+  color: #171614;
+
+  font: 700 11px "Montserrat", sans-serif;
+}
+
+/* نافذة السلة */
+.cart-dialog {
+  width: min(470px, calc(100% - 24px));
+  max-height: 82vh;
+
+  margin: auto;
+  padding: 24px;
+
+  border: 0;
+  border-radius: 14px;
+
+  color: var(--text-color);
+  font-family: "Cairo", sans-serif;
+
+  box-shadow: 0 20px 70px #0003;
+}
+
+.cart-dialog::backdrop {
+  background: rgba(0, 0, 0, .58);
+  backdrop-filter: blur(2px);
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 16px;
+}
+
+.cart-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.cart-header button {
+  border: 0;
+  background: transparent;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.cart-items {
+  max-height: 42vh;
+  overflow: auto;
+}
+
+.cart-item {
+  padding: 13px 0;
+  border-bottom: 1px solid #eee9e1;
+}
+
+.cart-item h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.cart-item p {
+  margin: 0 0 8px;
+  color: var(--muted-color);
+  font-size: 13px;
+}
+
+.cart-item button {
+  margin-left: 6px;
+  padding: 5px 11px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+
+  background: #fff;
+  cursor: pointer;
+
+  font: 13px "Cairo", sans-serif;
+}
+
+.cart-footer {
+  margin-top: 18px;
+}
+
+.cart-footer > p {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cart-footer > button {
+  width: 100%;
+  min-height: 45px;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: #222;
+  color: #fff;
+
+  cursor: pointer;
+
+  font: 700 14px "Cairo", sans-serif;
+}
+
+#cartMessage {
+  color: var(--muted-color);
+  font-size: 12px;
+}
+
+/* أسفل الموقع */
+.site-footer {
+  padding: 35px 18px;
+  text-align: center;
+
+  background: #1c1b18;
+  color: #d8d2c8;
+}
+
+.site-footer .footer-logo {
+  color: #d4b58b;
+  font-size: 23px;
+}
+
+.site-footer p {
+  margin: 10px 0;
+  font-size: 13px;
+}
+
+.site-footer .copyright {
+  color: #969087;
+  margin-top: 20px;
+}
+
+/* الحركة */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* الأجهزة المتوسطة */
+@media (max-width: 760px) {
+  .site-header {
+    flex-direction: column;
+    padding: 16px;
+    gap: 13px;
+  }
+
+  .site-header nav {
+    gap: 13px 18px;
+  }
+
+  .site-header nav a {
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: 400px;
+  }
+
+  .about {
+    margin: 45px auto;
+  }
+
+  .products {
+    padding: 55px 14px;
+  }
+
+  .products-container {
+    grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(min(100%, 210px), 1fr)
+      );
+
+    gap: 15px;
+  }
+
+  .products-image {
+    height: 260px;
+  }
+}
+
+/* الهواتف */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 23px;
+  }
+
+  .products-controls {
+    flex-direction: column;
+  }
+
+  .products-controls input,
+  .products-controls select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .products-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .products-card {
+    padding: 10px;
+  }
+
+  .products-image {
+    height: 210px;
+  }
+
+  .products-card h3 {
+    font-size: 15px;
+  }
+
+  .product-price strong {
+    font-size: 14px;
+  }
+
+  .add-to-cart {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .badge {
+    top: 17px;
+    right: 17px;
+  }
+
+  .cart-button {
+    bottom: 16px;
+    left: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .products-container {
+    grid-template-columns: 1fr;
+  }
+
+  .products-image {
+    height: 290px;
+  }
+}
